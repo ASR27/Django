@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-from .forms import RegForm, RegModelForm
+from .forms import RegModelForm, ContactForm
 from .models import Registrado
 
 # Create your views here.
@@ -37,3 +37,22 @@ def inicio(request):
 		# obj = Registrado.objects.create(email=abc, nombre=abc2)
 	
 	return render(request, "inicio.html", context)
+
+
+def contact(request):
+	form = ContactForm(request.POST or None)
+	if form.is_valid():
+		for key, value in form.cleaned_data.iteritems():
+			print key, value
+
+		# for key in form.cleaned_data:
+		# 	print key
+		# 	print form.cleaned_data.get(key)
+
+		# nombre = form.cleaned_data.get("nombre")
+		# email = form.cleaned_data.get("email")
+		# mensaje = form.cleaned_data.get("mensaje")
+		# print nombre, email, mensaje
+
+	context = {"form": form,}
+	return render(request, "forms.html", context)
