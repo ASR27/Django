@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block head_title %}Bienvenidos | {{ block.super }}{% endblock %}
 
@@ -43,10 +44,10 @@
 		</form>
 	</div>
 	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Creado con Django &amp; Bootstrap</p>
+		<p class='lead text-align-center'>Creado con Django &amp; Bootstrap<br/></p><img src='{% static "img/Potemkin.jpg" %}'/>
 	</div>
 	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Código Abierto</p>
+		<p class='lead text-align-center'>Código Abierto<i class="fas fa-table-tennis"></i></p>
 	</div>
 	<div class='col-sm-3'>
 		<p class='lead text-align-center'>Open Source</p>
