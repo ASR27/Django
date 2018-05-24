@@ -41,6 +41,7 @@ def inicio(request):
 
 
 def contact(request):
+	titulo = "Contacto"
 	form = ContactForm(request.POST or None)
 	if form.is_valid():
 
@@ -61,5 +62,5 @@ def contact(request):
 		send_mail(asunto, email_mensaje, email_from, email_to, fail_silently=False)
 		# print nombre, email, mensaje
 
-	context = {"form": form,}
+	context = {"form": form, "titulo": titulo,}
 	return render(request, "forms.html", context)
